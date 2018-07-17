@@ -7,6 +7,12 @@ SendMode Input ; Recommended for new scripts due to its superior speed and relia
 SetWorkingDir %A_ScriptDir% ; Ensures a consistent starting directory.
 #Include %A_ScriptDir%
 
+GroupAdd BrowserWindow, ahk_exe chrome.exe
+GroupAdd BrowserWindow, ahk_exe firefox.exe
+GroupAdd ConsoleWindow, ahk_class ConsoleWindowClass
+GroupAdd ConsoleWindow, ahk_class mintty
+
+
 #Include, *i remappings.ahk
 #Include, *i application_launchers.ahk
 #Include, *i taskview_mouse.ahk

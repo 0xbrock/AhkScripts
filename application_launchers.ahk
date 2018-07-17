@@ -3,8 +3,8 @@
 #NoEnv ; Recommended for performance and compatibility with future AutoHotkey releases.
 SendMode Input ; Recommended for new scripts due to its superior speed and reliability.
 
-GroupAdd BrowserWindow, ahk_exe chrome.exe
-GroupAdd BrowserWindow, ahk_exe firefox.exe
+; GroupAdd BrowserWindow, ahk_exe chrome.exe
+; GroupAdd BrowserWindow, ahk_exe firefox.exe
 
 ;#region Launch Applications 
 ^!n::
@@ -102,17 +102,20 @@ return
 	return
 #If
 
-#If !WinActive("ahk_group BrowserWindow")
+#IfWinNotActive ahk_group BrowserWindow
 	; Alt+Left, Alt+Right
 	!Left::Send {Home}
 	!Right::Send {End}
-#If
+#IfWinNotActive
 
 ; Browser Prev/Next Tab
-#If WinActive("ahk_group BrowserWindow") 
+#IfWinActive ahk_group BrowserWindow
 	F1::Send ^+{TAB}
 	F2::Send ^{TAB}
-#If
+	; Alt+Left, Alt+Right
+	; !Left::Send {Back}
+	; !Right::Send {Forward}
+#IfWinActive
 
 ; Ctrl+Alt+l  Jump to Skype search box
 ^!l::

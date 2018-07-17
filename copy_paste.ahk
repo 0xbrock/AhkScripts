@@ -8,8 +8,8 @@
 #NoEnv ; Recommended for performance and compatibility with future AutoHotkey releases.
 SendMode Input ; Recommended for new scripts due to its superior speed and reliability.
 
-GroupAdd ConsoleWindow, ahk_class ConsoleWindowClass
-GroupAdd ConsoleWindow, ahk_class mintty
+; GroupAdd ConsoleWindow, ahk_class ConsoleWindowClass
+; GroupAdd ConsoleWindow, ahk_class mintty
 
 ;#region Copy and Paste Shortcuts
 !p::

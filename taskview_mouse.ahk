@@ -12,16 +12,16 @@ GroupAdd TaskViewWindow, ahk_class Windows.UI.Core.CoreWindow
 
 ;#region Task View Shortcuts
 ; Show Task View, Wheel/Middle click on desktop
-#If !WinActive("ahk_group NotTaskViewGroup")
+#IfWinNotActive ahk_group NotTaskViewGroup
 	MButton::Send {LWin down}{Tab down}{Tab up}{Lwin up}
-#If
+#IfWinNotActive
 
-#If WinActive("ahk_group TaskViewWindow")
+#IfWinActive ahk_group TaskViewWindow
 	WheelDown::Send ^#{Right}
 	WheelUp::Send ^#{Left}
 	MButton & WheelDown::Send {WheelDown}
 	MButton & WheelUp::Send {WheelUp}
-#If
+#IfWinActive
 
 ; Move to the desktop right of the current desktop, Wheel right click 
 XButton1 & WheelDown::Send ^#{Right}
