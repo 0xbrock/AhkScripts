@@ -48,51 +48,52 @@ GetMonitorIndexFromWindow(windowHandle) {
 
 MoveWin(MoveToPosition)
 {
-	padding := 7
 	WinGet activeWin, ID, A
     activeMon := GetMonitorIndexFromWindow(activeWin)
     SysGet, m, MonitorWorkArea, %activeMon%
     WinGetPos, px, py, w, h, A  ; "A" to get the active window's pos.
+    WinGetPosEx(activeWin,Xex,Yex,Width,Height,Offset_X,Offset_Y)
     ;MsgBox, px:`t%px%`npy:`t%py%`nw:`t%w%`nh:`t%h%`nMonitor:`t#%activeMon%`nLeft:`t%mLeft% (%mLeft% work)`nTop:`t%mTop% (%mTop% work)`nRight:`t%mRight% (%mRight% work)`nBottom:`t%mBottom% (%mBottom% work)
+    ;MsgBox, px:`t%px%`npy:`t%py%`nXex:`t%Xex%`nYex:`t%Yex%`nWidth:`t%Width%`nHeight:`t%Height%`nOffset_X:`t%Offset_X%`nOffset_Y:`t%Offset_Y%
 
     if (MoveToPosition = "L") {
-        x := mLeft - padding
+        x := mLeft + Offset_X
         y := py
     } else if (MoveToPosition = "R") {
-        x := mRight - w + padding
+        x := mRight - w - (Offset_X * 2)
         y := py
     } else if (MoveToPosition = "U") {
         x := px
         y := mTop
     } else if (MoveToPosition = "D") {
         x := px
-        y := mBottom - h + padding
+        y := mBottom - h - (Offset_Y * 2)
     } else if (MoveToPosition = "LB") {
-        x := mLeft - padding
-        y := mBottom - h + padding
+        x := mLeft + Offset_X
+        y := mBottom - h - (Offset_Y * 2)
     } else if (MoveToPosition = "MB") {
         x := ((mRight-mLeft) / 2) - (w / 2) + mLeft
-        y := mBottom - h + padding
+        y := mBottom - h - (Offset_Y * 2)
     } else if (MoveToPosition = "RB") {
-        x := mRight - w + padding
-        y := mBottom - h + padding
+        x := mRight - w - Offset_X
+        y := mBottom - h - (Offset_Y * 2)
     } else if (MoveToPosition = "LM") {
-        x := mLeft - padding
+        x := mLeft + Offset_X
         y := ((mBottom-mTop) / 2) - (h / 2) + mTop
     } else if (MoveToPosition = "MM") {
         x := ((mRight-mLeft) / 2) - (w / 2) + mLeft
         y := ((mBottom-mTop) / 2) - (h / 2) + mTop
     } else if (MoveToPosition = "RM") {
-        x := mRight - w + padding
+        x := mRight - w - Offset_X
         y := ((mBottom-mTop) / 2) - (h / 2) + mTop
     } else if (MoveToPosition = "LT") {
-        x := mLeft - padding
+        x := mLeft + Offset_X
         y := mTop
     } else if (MoveToPosition = "MT") {
         x := ((mRight-mLeft) / 2) - (w / 2) + mLeft
         y := mTop
     } else if (MoveToPosition = "RT") {
-        x := mRight - w + padding
+        x := mRight - w - Offset_X
         y := mTop
     }
 

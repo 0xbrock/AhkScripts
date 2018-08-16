@@ -13,6 +13,7 @@ GroupAdd ConsoleWindow, ahk_class ConsoleWindowClass
 GroupAdd ConsoleWindow, ahk_class mintty
 
 
+#Include, *i WinGetPosEx.ahk
 #Include, *i remappings.ahk
 #Include, *i application_launchers.ahk
 #Include, *i taskview_mouse.ahk
@@ -21,6 +22,7 @@ GroupAdd ConsoleWindow, ahk_class mintty
 #Include, *i window_snap.ahk
 #Include, *i text_sub.ahk
 
+#Include, *i ahkscripts\WinGetPosEx.ahk
 #Include, *i ahkscripts\remappings.ahk
 #Include, *i ahkscripts\application_launchers.ahk
 #Include, *i ahkscripts\taskview_mouse.ahk
