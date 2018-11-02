@@ -4,6 +4,12 @@
 ;; http://www.howtogeek.com 
 ;;
 
+#NoEnv ; Recommended for performance and compatibility with future AutoHotkey releases.
+SendMode Input ; Recommended for new scripts due to its superior speed and reliability.
+
+GroupAdd DisableAltDragGroup, ahk_exe Unity.exe
+
+#IfWinNotActive ahk_group DisableAltDragGroup
 ;#region Move windows with Alt+LeftClick Drag or CapsLock+LeftClick Drag
 !LButton::
 CoordMode, Mouse  ; Switch to screen/absolute coordinates.
@@ -13,6 +19,7 @@ WinGet, EWD_WinState, MinMax, ahk_id %EWD_MouseWin%
 if EWD_WinState = 0  ; Only if the window isn't maximized
     SetTimer, EWD_WatchMouse, 10 ; Track the mouse as the user drags it.
 return
+#IfWinNotActive
 
 EWD_WatchMouse:
 GetKeyState, EWD_LButtonState, LButton, P
@@ -38,4 +45,5 @@ WinMove, ahk_id %EWD_MouseWin%,, EWD_WinX + EWD_MouseX - EWD_MouseStartX, EWD_Wi
 EWD_MouseStartX := EWD_MouseX  ; Update for the next timer-call to this subroutine.
 EWD_MouseStartY := EWD_MouseY
 return
+
 ;#endregion Move windows with Alt+LeftClick Drag or CapsLock+LeftClick Drag

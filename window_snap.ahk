@@ -112,6 +112,16 @@ MoveWin(MoveToPosition)
 #Numpad7::MoveWin("LT")
 #Numpad8::MoveWin("MT")
 #Numpad9::MoveWin("RT")
+; For Keyboards without number pads
+#!+1::MoveWin("LB")
+#!+2::MoveWin("MB")
+#!+3::MoveWin("RB")
+#!+4::MoveWin("LM")
+#!+5::MoveWin("MM")
+#!+6::MoveWin("RM")
+#!+7::MoveWin("LT")
+#!+8::MoveWin("MT")
+#!+9::MoveWin("RT")
 ;#endregion Snap Window To Monitor location
 
 

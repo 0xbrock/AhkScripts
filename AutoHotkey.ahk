@@ -11,7 +11,10 @@ GroupAdd BrowserWindow, ahk_exe chrome.exe
 GroupAdd BrowserWindow, ahk_exe firefox.exe
 GroupAdd ConsoleWindow, ahk_class ConsoleWindowClass
 GroupAdd ConsoleWindow, ahk_class mintty
-
+GroupAdd DisableAltDragGroup, ahk_exe Unity.exe
+GroupAdd NotTaskViewGroup, ahk_exe blender.ahk_exe
+GroupAdd TaskViewWindow, ahk_class MultitaskingViewFrame
+GroupAdd TaskViewWindow, ahk_class Windows.UI.Core.CoreWindow
 
 #Include, *i WinGetPosEx.ahk
 #Include, *i remappings.ahk
